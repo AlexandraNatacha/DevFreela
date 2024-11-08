@@ -1,16 +1,14 @@
 using DevFreela.API.ExcepetionHandler;
-using DevFreela.API.Models;
-using DevFreela.API.Persistence;
-using DevFreela.API.Services;
+using DevFreela.Application.Models;
+using DevFreela.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.Configure<FreelancerTotalCostConfig>(
-    builder.Configuration.GetSection("FreelancerTotalCostConfig")
-    );
+//builder.Services.Configure<FreelancerTotalCostConfig>(
+//    builder.Configuration.GetSection("FreelancerTotalCostConfig")
+//    );
 
-builder.Services.AddScoped<IConfigService, ConfigService>();
 
 var connectionString = builder.Configuration.GetConnectionString("DevFreelaCs");
 

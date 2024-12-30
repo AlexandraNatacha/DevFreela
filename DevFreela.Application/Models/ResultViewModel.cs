@@ -16,6 +16,11 @@ namespace DevFreela.Application.Models
 
         public bool IsSuccess { get; private set; }
         public string Message { get; private set; }
+        public static ResultViewModel Success()
+           => new();
+
+        public static ResultViewModel Erro(string Message)
+            => new(false, Message);
     }
 
     public class ResultViewModel<T> : ResultViewModel
@@ -27,5 +32,10 @@ namespace DevFreela.Application.Models
         }
 
         public T? Data { get; set; }
+        public static ResultViewModel<T> Success(T data)
+            => new ResultViewModel<T>(data);
+
+        public static ResultViewModel<T> Erro (string Message)
+            => new (default, false, Message);
     }
 }

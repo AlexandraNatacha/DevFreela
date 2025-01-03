@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DevFreela.Application.Models;
 
 namespace DevFreela.Application.Services
 {
     public interface ISkillService
     {
+        ResultViewModel<List<SkillItemViewModel>> GetAll();
+        ResultViewModel<int> Insert(CreateSkillInputModel model);
     }
 }

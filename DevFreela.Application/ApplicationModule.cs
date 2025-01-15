@@ -1,4 +1,5 @@
 ﻿using DevFreela.Application.Commands.InsertProject;
+using DevFreela.Application.Queries.GetAllProjects;
 using DevFreela.Application.Services;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -24,6 +25,9 @@ namespace DevFreela.Application
         {
             services.AddMediatR(config => 
             config.RegisterServicesFromAssemblyContaining<InsertProjectCommand>());
+
+            services.AddMediatR(config =>
+            config.RegisterServicesFromAssemblyContaining<GetAllProjectsQuery>());
 
             return services;
         }

@@ -1,8 +1,5 @@
-﻿using Azure;
-using DevFreela.Application.Models;
-using DevFreela.Infrastructure.Persistence;
+﻿using DevFreela.Application.Models;
 using MediatR;
-using System.Drawing;
 
 namespace DevFreela.Application.Queries.GetAllProjects
 {

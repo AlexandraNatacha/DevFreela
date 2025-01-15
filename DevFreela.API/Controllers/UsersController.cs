@@ -59,7 +59,7 @@ namespace DevFreela.API.Controllers
         }
 
         [HttpPut("{id}/profile-picture")] 
-        public IActionResult PostProfilePicture(int id,     IFormFile file)
+        public IActionResult PostProfilePicture(int id, IFormFile file)
         {
             var description = $"File: {file.FileName}, Size: {file.Length}";
 

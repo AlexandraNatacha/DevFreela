@@ -63,9 +63,9 @@ namespace DevFreela.API.Controllers
         {
             var description = $"File: {file.FileName}, Size: {file.Length}";
 
-            //processar a imagem
+        //    //processar a imagem
 
-            return Ok(description);
-        }
+        //    return Ok(description);
+        //}
     }
 }

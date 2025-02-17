@@ -1,4 +1,5 @@
 ﻿using DevFreela.Application.Models;
+using DevFreela.Core.Repositories;
 using DevFreela.Infrastructure.Persistence;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -7,14 +8,14 @@ namespace DevFreela.Application.Queries.GetAllSkill
 {
     public class GetAllSkillHandler : IRequestHandler<GetAllSkillQuery, ResultViewModel<List<SkillItemViewModel>>>
     {
-        private readonly DevFreelaDbContext _context;
-        public GetAllSkillHandler(DevFreelaDbContext context)
+        private readonly ISkillRepository _repository;
+        public GetAllSkillHandler(ISkillRepository repository)
         {
-            _context = context;
+            _repository = repository;
         }
         public async Task<ResultViewModel<List<SkillItemViewModel>>> Handle(GetAllSkillQuery request, CancellationToken cancellationToken)
         {
-            var skills = await _context.Skills.Where(x => !x.IsDeleted).ToListAsync();
+            var skills = await _repository.GetAll();
 
             var model = skills.Select(SkillItemViewModel.FromEntity).ToList();
 

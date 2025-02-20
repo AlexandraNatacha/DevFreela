@@ -19,7 +19,7 @@ namespace DevFreela.Application.Commands.InsertProject
             
             if(!clientExists || !freelancerExists )
             {
-                return ResultViewModel<int>.Erro("Cliente ou Freelancer inválidos.");
+                return ResultViewModel<int>.Erro("Id do cliente ou Freelancer inválidos.");
             }
             return await next();
         }

@@ -36,6 +36,13 @@ namespace DevFreela.Infrastructure.Persistence.Repositories
             return user;
         }
 
+        public async Task<User?> GetUserByEmailAndPasswordAsync(string email, string passwordHash)
+        {
+            var user = await _context.Users
+                .SingleOrDefaultAsync(u => u.Email.Equals(email) && u.Password.Equals(passwordHash));
+            return user;
+        }
+
         public async Task<List<int>> IdSkillsExists(int[] skills, int idUser)
         {
             var existingSkills = await _context.UserSkills

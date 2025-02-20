@@ -8,8 +8,10 @@ namespace DevFreela.Application.Commands.InsertUser
     {
         public string FullName { get; set; }
         public string Email { get; set; }
+        public string Password { get; set; }
+        public string Role { get; set; }
         public DateTime BrithDate { get; set; }
 
-        public User ToEntity() => new User(FullName, Email, BrithDate); 
+        
     }
 }

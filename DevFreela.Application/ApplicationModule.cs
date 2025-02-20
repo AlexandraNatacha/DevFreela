@@ -1,4 +1,5 @@
 ﻿using DevFreela.Application.Commands.InsertProject;
+using DevFreela.Application.Commands.LoginUser;
 using DevFreela.Application.Models;
 using DevFreela.Application.Queries.GetAllProjects;
 using FluentValidation;
@@ -20,9 +21,6 @@ namespace DevFreela.Application
         {
             services.AddMediatR(config => 
             config.RegisterServicesFromAssemblyContaining<InsertProjectCommand>());
-
-            services.AddMediatR(config =>
-            config.RegisterServicesFromAssemblyContaining<GetAllProjectsQuery>());
 
             services.AddTransient<IPipelineBehavior<InsertProjectCommand, ResultViewModel<int>>, ValidateInsertCommandBehavior>();
             return services;
